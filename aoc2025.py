@@ -289,7 +289,7 @@ class Day4:
         for position in positions:
             if Day4.IsAdjacentARoll(position, input_list, x, y):
                 x_new, y_new = Day4.GetPositionCoord(position, x, y)
-                print(f'checking coords:{y},{x} char:{input_list[y][x]} enqueuing:{y_new},{x_new} char:{input_list[y_new][x_new]}')
+                #print(f'checking coords:{y},{x} char:{input_list[y][x]} enqueuing:{y_new},{x_new} char:{input_list[y_new][x_new]}')
                 checking_queue.enqueue(Day4.GetPositionCoord(position, x, y))
 
     @staticmethod
@@ -396,10 +396,9 @@ class Day4:
                         input_list[i] = Day4.GetNewLine(input_list[i], j)
                         Day4.EnqueueAdjacents(checking_queue, EdgeCase.NONE, j, i, input_list)
         
-        # 10k too high, 4807 too low
         while checking_queue.is_empty() == False:
             j, i = checking_queue.dequeue()
-            print(f'running coords:{i},{j} char:{input_list[i][j]}')
+            #print(f'running coords:{i},{j} char:{input_list[i][j]}')
             if (j, i) != (-1, -1) and input_list[i][j] == "@": # sanity check
                 if i == 0: # top edge
                     if j == 0: # left corner
